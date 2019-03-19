@@ -1,4 +1,14 @@
-# IdenticonAng
+# Identicon app [Angular]
+
+The application creates downloadable identicons. Identicon is automatically generated profile image made from some text, usually the name string. It consists of 5×5 block matrix out of which fourth and fifth columns are mirrored second and first respectively. This means that the shape could be determined by only 15 bits of information. Input string is converted to MD5 hash 16 bit hex-decimal and again converted to decimal array storing 16 numeric values ranging from 0 to 255 which is convenient for creating identicon shape and color.
+
+![identicon-thumb](https://user-images.githubusercontent.com/31347233/54619712-57668680-4a65-11e9-8b00-7ddaf9c4b481.jpg)
+
+## Project Objectives
+
+- identicon shape and color created from input string using MD5 hash
+- identicon is unique to each string
+- identicon image needs to be downloadable as bitmap
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.7.
 
