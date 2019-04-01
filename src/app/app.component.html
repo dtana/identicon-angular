@@ -23,13 +23,15 @@
       <div class="canvas-container text-right">
         <canvas #myCanvas id="canvas" width="250" height="250"></canvas>
       </div>
-      <a href="" class="btn btn-success mt-2" #downloadLink (click)="download(downloadLink)" download="identicon.png">Download</a>
     </div>
     <div class="col-7">
       <p><strong>text:</strong> <input (keyup)="onUpdate(str)" class="form-control" [(ngModel)]="str" value="{{ str }}" type="text" placeholder="dtana" aria-label="identicon"></p>
       <p><strong>input string:</strong> "{{ str }}"</p>
       <p><strong>MD5 hash:</strong> {{ hash }}</p>
       <p><strong>values:</strong> {{ hex }}</p>
+      <p><strong>even/odd:</strong> {{ evenodd }}</p>
+      <p><strong>binary:</strong> {{ binary }}</p>
+      <a href="" class="btn btn-success" #downloadLink (click)="download(downloadLink)" download="identicon.png">Download</a>
     </div>
   </div>
 </main>
