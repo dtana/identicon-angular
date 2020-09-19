@@ -11,27 +11,27 @@
   <div class="container">
     <h1 class="mb-0">hub-style identicon</h1>
     <h4 class="mb-4">create and download your own identicon</h4>
-    <p>Identicon is automatically generated profile image made from some text, usually the name string. It consists of 5×5 block matrix out of which fourth and fifth columns are mirrored second and first respectively. This means that the shape could be determined by only 15 bits of information. Input string is converted to MD5 hash 16 bit hex-decimal and again converted to decimal array storing 16 numeric values ranging from 0 to 255 which is convenient for creating identicon shape and color.</p>
-    <p>The shape is determined by the first 15 entries in the array by checking if it is even/odd. Even value switches on its respective block.</p>
-    <p>The shape color is determined by first three values of the array which determine its RGB value. Background color is determined by last three values of the array, or switched to Github regular gray.</p>
+    <p>Identicon is automatically generated profile image made from string, usually users name. It consists of 5×5 block matrix out of which fourth and fifth columns are mirrored second and first respectively. This means that the shape could be determined by only 15 bits of information.</p>
+    <p>Input string is converted to MD5 hash 16 bit hex-decimal and again converted to decimal array storing 16 numeric values ranging from 0 to 255 which is convenient for creating identicon shape and color.</p>
+    <p>Shape is determined by the first 15 entries in the array by even/odd check. Even values are used to "turn on" its respective block.</p>
+    <p>Block color is determined by first three values of the decimal array that set RGB fill value. Background color is set by helper function which alters block color to be lighter/darker for convenient contrast.</p>
   </div>
 </div>
- 
+
 <main role="main" class="container">
   <div class="row">
     <div class="col-5 text-right">
       <div class="canvas-container text-right">
-        <canvas #myCanvas id="canvas" width="250" height="250"></canvas>
+        <canvas #identicon width="250" height="250"></canvas>
       </div>
     </div>
     <div class="col-7">
-      <p><strong>text:</strong> <input (keyup)="onUpdate(str)" class="form-control" [(ngModel)]="str" value="{{ str }}" type="text" placeholder="dtana" aria-label="identicon"></p>
+      <p><strong>text to convert:</strong> <input (keyup)="onUpdate(str)" class="form-control" [(ngModel)]="str" value="{{ str }}" type="text" placeholder="dtana" aria-label="identicon"></p>
       <p><strong>input string:</strong> "{{ str }}"</p>
       <p><strong>MD5 hash:</strong> {{ hash }}</p>
-      <p><strong>values:</strong> {{ hex }}</p>
-      <p><strong>even/odd:</strong> {{ evenodd }}</p>
-      <p><strong>binary:</strong> {{ binary }}</p>
-      <a href="" class="btn btn-success" #downloadLink (click)="download(downloadLink)" download="identicon.png">Download</a>
+      <p><strong>decimal values:</strong> {{ hex }}</p>
+      <p><strong>even/odd binary:</strong> {{ binary }}</p>
+      <a href="" class="btn btn-success" #downloadLink (click)="download()" download="identicon.png">Download</a>
     </div>
   </div>
 </main>
